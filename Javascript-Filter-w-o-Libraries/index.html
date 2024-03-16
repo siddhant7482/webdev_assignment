@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cartoonopia</title>
+  <header class="black-header">
+    <h1>Cartoonopia</h1>
+    <p1>The home of characters and cartoons!</p1>
+   </header>
+</head>
+<body>
+  <div class="background-image-blur-whitewash"></div>
+  <div class="search-container">
+    <div class="search-input"></div>
+    <input type="text" id="search" class="search-bar"  placeholder="Enter a movie">
+  </div>
+  <div class="container">
+    <div class="filters">
+      <div>
+        <label for="strengthMin">Strength Min:</label>
+        <input type="range" id="strengthMin" min="0" max="100" value="0">
+        <label for="strengthMax">Strength Max:</label>
+        <input type="range" id="strengthMax" min="0" max="100" value="100">
+      </div>
+      <div>
+        <label for="speedMin">Speed Min:</label>
+        <input type="range" id="speedMin" min="0" max="100" value="0">
+        <label for="speedMax">Speed Max:</label>
+        <input type="range" id="speedMax" min="0" max="100" value="100">
+      </div>
+    
+      <div>
+        <label for="skillMin">Skill Min:</label>
+        <input type="range" id="skillMin" min="0" max="100" value="0">
+        <label for="skillMax">Skill Max:</label>
+        <input type="range" id="skillMax" min="0" max="100" value="100">
+      </div>
+    
+      <div>
+        <label for="fearFactorMin">Fear Factor Min:</label>
+        <input type="range" id="fearFactorMin" min="0" max="100" value="0">
+        <label for="fearFactorMax">Fear Factor Max:</label>
+        <input type="range" id="fearFactorMax" min="0" max="100" value="100">
+      </div>
+    
+      <div>
+        <label for="powerMin">Power Min:</label>
+        <input type="range" id="powerMin" min="0" max="100" value="0">
+        <label for="powerMax">Power Max:</label>
+        <input type="range" id="powerMax" min="0" max="100" value="100">
+      </div>
+      <div>
+        <label for="intelligenceMin">Intelligence Min:</label>
+        <input type="range" id="intelligenceMin" min="0" max="100" value="0">
+        <label for="intelligenceMax">Intelligence Max:</label>
+        <input type="range" id="intelligenceMax" min="0" max="100" value="100">
+      </div>
+      
+      <div>
+        <label for="wealthMin">Wealth Min:</label>
+        <input type="range" id="wealthMin" min="0" max="100" value="0">
+        <label for="wealthMax">Wealth Max:</label>
+        <input type="range" id="wealthMax" min="0" max="100" value="100">
+      </div> 
+    </div>
+
+    <div class="table-container">
+     <h2>Character Table</h2>
+     
+     <table id="characters-container">
+
+     </table>
+    </div>
+
+    <div>
+      <div class="comparison-history">
+        <div id="comparison-history"></div>
+      </div>
+
+    </div> 
+  </div>
+
+  <div id="selected-characters">
+    <div id="selected-character-1"></div>
+    <div id="selected-character-2"></div>
+  </div>
+  <script src="index.js"></script>
+</body>
+</html>
