@@ -116,7 +116,7 @@ fetch('data.json')
     // Check if character is already selected
     if (selectedCharacter1.innerHTML && selectedCharacter2.innerHTML) {
       // Clear the selected characters and comparison history
-      comparisonHistory.innerHTML += "<br>"+selectedChar1+" vs"+selectedChar2 ;
+      comparisonHistory.innerHTML += "<br>"+selectedChar1+'  '+selectedChar2 ;
       selectedCharacter1.innerHTML = '';
       selectedCharacter2.innerHTML = '';
     }
@@ -124,10 +124,10 @@ fetch('data.json')
     // Check if selectedCharacter1 is empty
     if (!selectedCharacter1.innerHTML) {
       //This is HTML Code
-      selectedCharacter1.innerHTML = `<img src="${character.image_url}" alt="${character.name}">`;
+      selectedCharacter1.innerHTML = `<img src="${character.image_url}" alt="${character.name}"> <h5>${character.name}</h5>`;
       selectedChar1 =  "" + character.name;
     } else if (!selectedCharacter2.innerHTML) {
-      selectedCharacter2.innerHTML = `<img src="${character.image_url}" alt="${character.name}">`;
+      selectedCharacter2.innerHTML = `<img src="${character.image_url}" alt="${character.name}"> <h5>${character.name}</h5>`;
       selectedChar2 = character.name;
     }
   }
