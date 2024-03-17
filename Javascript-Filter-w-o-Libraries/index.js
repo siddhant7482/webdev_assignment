@@ -1,4 +1,6 @@
 var selectedChar1;
+var qualitiesChar1;
+var qualitiesChar2;
 fetch('data.json')
 .then(response => {
   if (!response.ok) {
@@ -17,6 +19,11 @@ fetch('data.json')
   const selectedCharacter1 = document.getElementById('selected-character-1');
   const selectedCharacter2 = document.getElementById('selected-character-2');
   const comparisonHistory = document.getElementById('comparison-history');
+
+
+  // Get table comparison elements
+  const comparisonBox = document.getElementById('comparison-box');
+
 
   // Function to Filter and Display Characters based on search query and filters
   function filterCharacters() {
@@ -42,7 +49,7 @@ fetch('data.json')
 
     // Clear the characters container fix
     charactersContainer.innerHTML = '';
-    charactersContainer.innerHTML =       '<thead><tr><th>Name</th><th>Strength</th><th>Speed</th><th>Skill</th><th>Fear Factor</th><th>Power</th><th>Intelligence</th><th>Wealth</th><th>Selected</th></tr></thead>';
+    charactersContainer.innerHTML = '<thead><tr><th>Name</th><th>Strength</th><th>Speed</th><th>Skill</th><th>Fear Factor</th><th>Power</th><th>Intelligence</th><th>Wealth</th><th>Selected</th></tr></thead>';
 
     // Iteration over the array of characters & HTML elements for characters filtered
     characters.forEach(character => {
@@ -87,6 +94,8 @@ fetch('data.json')
           characterIntelligence.textContent = `${character.intelligence}`;
           const characterWealth = document.createElement('td');
           characterWealth.textContent = `${character.wealth}`;
+          const charSelected = document.createElement('td');
+          charSelected.innerHTML = '';
 
 
 
@@ -100,6 +109,7 @@ fetch('data.json')
           characterDiv.appendChild(characterPower);
           characterDiv.appendChild(characterIntelligence);
           characterDiv.appendChild(characterWealth);
+          characterDiv.appendChild(charSelected);
 
           // Add a click event listener to select the character
           characterDiv.addEventListener('click', () => selectCharacter(character));
@@ -119,16 +129,184 @@ fetch('data.json')
       comparisonHistory.innerHTML += "<br>"+selectedChar1+'  '+selectedChar2 ;
       selectedCharacter1.innerHTML = '';
       selectedCharacter2.innerHTML = '';
+      document.getElementById('left-strength').innerHTML = ""
+      document.getElementById('left-speed').innerHTML = ""
+      document.getElementById('left-skill').innerHTML = ""
+      document.getElementById('left-fear_factor').innerHTML = ""
+      document.getElementById('left-power').innerHTML = ""
+      document.getElementById('left-intelligence').innerHTML = ""
+      document.getElementById('left-wealth').innerHTML = ""
+
+      document.getElementById('right-strength').innerHTML = ""
+      document.getElementById('right-speed').innerHTML = ""
+      document.getElementById('right-skill').innerHTML = ""
+      document.getElementById('right-fear_factor').innerHTML = ""
+      document.getElementById('right-power').innerHTML = ""
+      document.getElementById('right-intelligence').innerHTML = ""
+      document.getElementById('right-wealth').innerHTML = ""
+
+      document.getElementById('char-card1').style.backgroundColor = "#28282B";
+      document.getElementById('char-card2').style.backgroundColor = "#28282B";
+
     }
 
     // Check if selectedCharacter1 is empty
     if (!selectedCharacter1.innerHTML) {
       //This is HTML Code
-      selectedCharacter1.innerHTML = `<img src="${character.image_url}" alt="${character.name}"> <h5>${character.name}</h5>`;
+      selectedCharacter1.innerHTML = `<div class="selected-character"><img src="${character.image_url}" alt="${character.name}"></div> <br> <p>${character.name}</p>      `;
       selectedChar1 =  "" + character.name;
+      qualitiesChar1=[character.strength,character.speed,character.skill,character.fear_factor,character.power,character.intelligence,character.wealth,character.name];
+      // console.log(qualitiesChar1);
     } else if (!selectedCharacter2.innerHTML) {
-      selectedCharacter2.innerHTML = `<img src="${character.image_url}" alt="${character.name}"> <h5>${character.name}</h5>`;
+      selectedCharacter2.innerHTML = `<div class="selected-character"><img src="${character.image_url}" alt="${character.name}"></div> <br> <h5>${character.name}</h5>`;
       selectedChar2 = character.name;
+        if(selectedChar1 == selectedChar2){
+          // comparisonHistory.innerHTML += "<br>"+selectedChar1+'  '+selectedChar2 ;
+          selectedCharacter1.innerHTML = '';
+          selectedCharacter2.innerHTML = '';
+        }
+      var qualitiesChar2=[character.strength,character.speed,character.skill,character.fear_factor,character.power,character.intelligence,character.wealth,character.name];
+
+
+      let wonByOne = 0;
+      let wonByTwo = 0;
+
+      if (qualitiesChar1[7] == qualitiesChar2[7]) {
+        document.getElementById('left-strength').innerHTML = "";
+        document.getElementById('left-speed').innerHTML = "";
+        document.getElementById('left-skill').innerHTML = "";
+        document.getElementById('left-fear_factor').innerHTML = "";
+        document.getElementById('left-power').innerHTML = "";
+        document.getElementById('left-intelligence').innerHTML = "";
+        document.getElementById('left-wealth').innerHTML = "";
+  
+  
+        document.getElementById('right-strength').innerHTML = "";
+        document.getElementById('right-speed').innerHTML = "";
+        document.getElementById('right-skill').innerHTML = "";
+        document.getElementById('right-fear_factor').innerHTML = "";
+        document.getElementById('right-power').innerHTML = "";
+        document.getElementById('right-intelligence').innerHTML = "";
+        document.getElementById('right-wealth').innerHTML = "";
+  
+        document.getElementById('char-card1').style.backgroundColor = "#28282B";
+        document.getElementById('char-card2').style.backgroundColor = "#28282B";
+      }
+      else{
+
+        if (qualitiesChar1[0] > qualitiesChar2[0]) {
+          document.getElementById('left-strength').innerHTML = "\u2713"
+          wonByOne += 1
+        } 
+        else if (qualitiesChar1[0] == qualitiesChar2[0]) {
+            document.getElementById('left-strength').innerHTML = "\u2713"
+            document.getElementById('right-strength').innerHTML = "\u2713"
+        }
+        else {
+            document.getElementById('right-strength').innerHTML = "\u2713"
+            wonByTwo += 1
+        }
+
+        if (qualitiesChar1[1] > qualitiesChar2[1]) {
+            document.getElementById('left-speed').innerHTML = "\u2713"
+            wonByOne += 1
+        } 
+        else if (qualitiesChar1[1] == qualitiesChar2[1]) {
+          document.getElementById('left-speed').innerHTML = "\u2713"
+          document.getElementById('right-speed').innerHTML = "\u2713"
+        }
+        else {
+            document.getElementById('right-speed').innerHTML = "\u2713"
+            wonByTwo += 1
+        }
+
+        if (qualitiesChar1[2] > qualitiesChar2[2]) {
+            document.getElementById('left-skill').innerHTML = "\u2713"
+            wonByOne += 1
+        } 
+        else if (qualitiesChar1[2] == qualitiesChar2[2]) {
+          document.getElementById('left-skill').innerHTML = "\u2713"
+          document.getElementById('right-skill').innerHTML = "\u2713"
+        }
+        else {
+            document.getElementById('right-skill').innerHTML = "\u2713"
+            wonByTwo += 1
+        }
+
+        if (qualitiesChar1[3] > qualitiesChar2[3]) {
+            document.getElementById('left-fear_factor').innerHTML = "\u2713"
+            wonByOne += 1
+        }
+        else if (qualitiesChar1[3] == qualitiesChar2[3]) {
+          document.getElementById('left-fear_factor').innerHTML = "\u2713"
+          document.getElementById('right-fear_factor').innerHTML = "\u2713"
+        }
+        else {
+            document.getElementById('right-fear_factor').innerHTML = "\u2713"
+            wonByTwo += 1
+
+        }
+
+        if (qualitiesChar1[4] > qualitiesChar2[4]) {
+            wonByOne += 1
+            document.getElementById('left-power').innerHTML = "\u2713"
+        } 
+        else if (qualitiesChar1[4] == qualitiesChar2[4]) {
+          document.getElementById('left-power').innerHTML = "\u2713"
+          document.getElementById('right-power').innerHTML = "\u2713"
+        }
+        else {
+            document.getElementById('right-power').innerHTML = "\u2713"
+            wonByTwo += 1
+
+        }
+
+        if (qualitiesChar1[5] > qualitiesChar2[5]) {
+            document.getElementById('left-intelligence').innerHTML = "\u2713"
+            wonByOne += 1
+        } 
+        else if (qualitiesChar1[5] == qualitiesChar2[5]) {
+          document.getElementById('left-intelligence').innerHTML = "\u2713"
+          document.getElementById('right-intelligence').innerHTML = "\u2713"
+        }
+        else {
+            document.getElementById('right-intelligence').innerHTML = "\u2713"
+            wonByTwo += 1
+        }
+
+        if (qualitiesChar1[6] > qualitiesChar2[6]) {
+            wonByOne += 1
+            document.getElementById('left-wealth').innerHTML = "\u2713"
+        } 
+        else if (qualitiesChar1[6] == qualitiesChar2[6]) {
+          document.getElementById('left-wealth').innerHTML = "\u2713"
+          document.getElementById('right-wealth').innerHTML = "\u2713"
+        }
+        else {
+            document.getElementById('right-wealth').innerHTML = "\u2713"
+            wonByTwo += 1
+
+        }
+
+        if (wonByOne > wonByTwo) {
+          document.getElementById('char-card1').style.backgroundColor = "green";
+          document.getElementById('char-card2').style.backgroundColor = "red";
+        } 
+        else if (wonByOne == wonByTwo) {
+          document.getElementById('char-card1').style.backgroundColor = "";
+          document.getElementById('char-card2').style.backgroundColor = "";
+        }
+        else {
+          document.getElementById('char-card1').style.backgroundColor = "red";
+          document.getElementById('char-card2').style.backgroundColor = "green";
+        }
+
+        // console.log("wonByOne", wonByOne, "wonByTwo", wonByTwo)
+
+
+      }
+      
+
     }
   }
 

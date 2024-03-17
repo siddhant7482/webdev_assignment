@@ -127,7 +127,7 @@
 
        .filter-range {
         width: 100px;
-        margin-left: 0px;
+        margin-left: -10px;
         appearance: none; /* Remove default slider styles */
         height: 5px; /* Adjust slider height */
         background: #ddd; /* Track color */
@@ -144,6 +144,9 @@
         cursor: pointer; /* Set cursor to pointer on hover */
       }
       
+      .filter-label {
+        margin-right: 20px;
+      } 
 
       table {
         border-collapse: collapse;

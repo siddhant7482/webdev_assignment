@@ -16,44 +16,44 @@
     <div class="search-input"></div>
     <input type="text" id="search" class="search-bar"  placeholder="Enter a movie">
   </div>
-  <div class="container">
+  <div class="container"> 
     <div class="filters">
       <div>
-        <label for="strengthMin">Strength</label>
+        <label class="filter-label" for="strengthMin">Strength</label>
         <input type="range" id="strengthMin" class="filter-range" min="0" max="100" value="0">
         <input type="range" id="strengthMax" class="filter-range" min="0" max="100" value="100">
       </div>
       <div>
-        <label for="speedMin">Speed</label>
+        <label class="filter-label" for="speedMin">Speed</label>
         <input type="range" id="speedMin" class="filter-range" min="0" max="100" value="0">
         <input type="range" id="speedMax" class="filter-range" min="0" max="100" value="100">
       </div>
     
       <div>
-        <label for="skillMin">Skill</label>
+        <label class="filter-label" for="skillMin">Skill</label>
         <input type="range" id="skillMin" class="filter-range" min="0" max="100" value="0">
         <input type="range" id="skillMax" class="filter-range"min="0" max="100" value="100">
       </div>
     
       <div>
-        <label for="fearFactorMin">Fear Factor </label>
+        <label class="filter-label" for="fearFactorMin">Fear Factor </label>
         <input type="range" id="fearFactorMin" class="filter-range" min="0" max="100" value="0">
         <input type="range" id="fearFactorMax" class="filter-range" min="0" max="100" value="100">
       </div>
     
       <div>
-        <label for="powerMin">Power</label>
+        <label class="filter-label" for="powerMin">Power</label>
         <input type="range" id="powerMin" class="filter-range" min="0" max="100" value="0">
         <input type="range" id="powerMax" class="filter-range" min="0" max="100" value="100">
       </div>
       <div>
-        <label for="intelligenceMin">Intelligence</label>
+        <label class="filter-label" for="intelligenceMin">Intelligence</label>
         <input type="range" id="intelligenceMin" class="filter-range" min="0" max="100" value="0">
         <input type="range" id="intelligenceMax" class="filter-range" min="0" max="100" value="100">
       </div>
       
       <div>
-        <label for="wealthMin">Wealth</label>
+        <label class="filter-label" for="wealthMin">Wealth</label>
         <input type="range" id="wealthMin" class="filter-range" min="0" max="100" value="0">
         <input type="range" id="wealthMax" class="filter-range" min="0" max="100" value="100">
       </div> 
@@ -76,48 +76,56 @@
   </div>
 
   <div id="selected-characters">
+    
+    
+
     <div class="selected-character-col">
-    <div id="selected-character-1" class="selected-character"></div>
+    <div id="selected-character-1"></div>
     </div>
     <div class="vs-heading">
       <h1>VS</h1>
    </div>
-    <div id="selected-character-2" class="selected-character"></div>
+   <div class="selected-character-col">
+    <div id="selected-character-2"></div>
+  </div>
+
+
+
+
   </div>
 
 
 
   <div class="final-comparison">
-    <div class="comparison-box">
-       <div class="character-card1" id="char-card1">
-          <div id="left-strength"></div>
-          <div id="left-speed"></div>
-          <div id="left-skill"></div>
-          <div id="left-fear_factor"></div>
-          <div id="left-power"></div>
-          <div id="left-intelligence"></div>
-          <div id="left-wealth"></div>
-       </div>
+    <div id= "comparison-box" class="comparison-box">
+      <div class="character-card1" id="char-card1">
+        <div id="left-strength"></div>
+        <div id="left-speed"></div>
+        <div id="left-skill"></div>
+        <div id="left-fear_factor"></div>
+        <div id="left-power"></div>
+        <div id="left-intelligence"></div>
+        <div id="left-wealth"></div>
+     </div>
 
-       <div class="comparison-main">
-          <div for="strength" id="fff">STRENGTH</div>
-          <div for="speed">SPEED</div>
-          <div for="skill">SKILL</div>
-          <div for="fear_factor">FEAR</div>
-          <div for="power">POWER</div>
-          <div for="intelligence">INTELLIGENCE</div>
-          <div for="wealth">WEALTH</div>
-       </div>
-
-       <div class="character-card2" id="char-card2">
-          <div id="right-strength"></div>
-          <div id="right-speed"></div>
-          <div id="right-skill"></div>
-          <div id="right-fear_factor"></div>
-          <div id="right-power"></div>
-          <div id="right-intelligence"></div>
-          <div id="right-wealth"></div>
-       </div>
+     <div class="comparison-main">
+        <div for="strength" id="fff">STRENGTH</div>
+        <div for="speed">SPEED</div>
+        <div for="skill">SKILL</div>
+        <div for="fear_factor">FEAR</div>
+        <div for="power">POWER</div>
+        <div for="intelligence">INTELLIGENCE</div>
+        <div for="wealth">WEALTH</div>
+     </div>
+     <div class="character-card2" id="char-card2">
+      <div id="right-strength"></div>
+      <div id="right-speed"></div>
+      <div id="right-skill"></div>
+      <div id="right-fear_factor"></div>
+      <div id="right-power"></div>
+      <div id="right-intelligence"></div>
+      <div id="right-wealth"></div>
+   </div>
     </div>
  </div>
 
